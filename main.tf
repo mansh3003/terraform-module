@@ -1,13 +1,34 @@
-
-provider "aws" {
-  region     = "us-west-1"
-}
-
-resource "aws_instance" "myfirstec2capg" {
-  ami           = "ami-0fb83b36371e7dab5" # us-west-1
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "MyfirstEC2Instance"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.50"
+    }
   }
 }
+
+resource "aws_instance" "myec2" {
+    ami = var.ami
+    instance_type = var.instance_type
+}
+
+
+variable "ami" {}
+variable "instance_type" {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
